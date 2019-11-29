@@ -13,7 +13,7 @@ namespace Master_Paper
         //Обчислення mu
         public static double getMu(double h1, double V, double nu)
         {
-            return 1 / (1 + h1 * V / nu);
+            return 1 / (1 + (h1 * V / nu));
         }
 
         //Обчислення rPlus
@@ -32,6 +32,12 @@ namespace Master_Paper
         public static double getPressure(double ro, double gamma, double l, double Z1, double Z2)
         {
             return gamma * (Z1 - Z2) / (ro * l);
+        }
+
+        //Обчислення додатку до коефіцієнта с
+        public static double getAddition(double tau)
+        {
+            return 1 / (2 * tau);
         }
 
         //Обчислення f
