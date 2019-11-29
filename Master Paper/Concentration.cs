@@ -39,7 +39,36 @@ namespace Master_Paper
         //Обчислення f
         public static double getF(double C, double C_bound, double gamma, double D, double tau)
         {
-            return C / ( 2 * D * tau) + C_bound * gamma / (2 * D);
+            return C / (2 * D * tau) + C_bound * gamma / (2 * D);
         }
+
+        //Крайова умова
+        public static void Initialize(ref double[,] C, double right, double left, double h1, double xLen, bool status)
+        {
+            int n = C.GetLength(0);
+            int m = C.GetLength(1);
+
+            //Граничні умови
+            for (int j = 0; j <= m; j++)
+                C[0, j] = left;
+
+            //1 роду
+            if (status)
+            {
+                for (int j = 0; j <= m; j++)
+                    C[n, j] = right;
+            }
+            //2 роду
+            else { C[n, 0] = right; }
+            
+            //Початкова умова
+            double x = 0;
+            for (int i = 1; i < n; i++)
+            {
+                x = i * h1;
+                C[i, 0] = (C[0, 0] - C[n, 0]) * x / xLen + C[0, 0];
+            }
+        }
+
     }
 }

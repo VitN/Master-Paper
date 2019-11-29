@@ -45,5 +45,27 @@ namespace Master_Paper
         {
             return V / (2 * tau) - pressure;
         }
+
+        //Крайова умова
+        public static void Initialize(ref double[,] V, double right, double left, double h1, double xLen)
+        {
+            int n = V.GetLength(0);
+            int m = V.GetLength(1);
+
+            //Граничні умови
+            for (int j = 0; j <= m; j++)
+            {
+                V[0, j] = left;
+                V[n, j] = right;
+            }
+
+            //Початкова умова
+            double x = 0;
+            for (int i = 1; i < n; i++)
+            {
+                x = i * h1;
+                V[i, 0] = (V[0, 0] - V[n, 0]) * x / xLen + V[0, 0];
+            }
+        }
     }
 }
