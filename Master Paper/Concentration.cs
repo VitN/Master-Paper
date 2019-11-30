@@ -24,7 +24,7 @@ namespace Master_Paper
         }
 
         //Обчислення rMinus
-        public static double getMinus(double V, double D)
+        public static double getRMinus(double V, double D)
         {
             double r = -V / D;
             return (r - Abs(r)) / 2;

@@ -45,7 +45,7 @@ namespace Master_Paper
         {
             return V / (2 * tau) - pressure;
         }
-
+        
         //Крайова умова
         public static void Initialize(ref double[,] V, double right, double left, double h1, double xLen)
         {

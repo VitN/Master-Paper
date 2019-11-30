@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.velocity = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.Value1 = new System.Windows.Forms.Label();
             this.calcVeloc = new System.Windows.Forms.Button();
             this.VelocityCalculation = new System.Windows.Forms.Label();
-            this.length_Value = new System.Windows.Forms.TextBox();
-            this.x_Value = new System.Windows.Forms.TextBox();
+            this.x1Length_Value = new System.Windows.Forms.TextBox();
+            this.dx_Value = new System.Windows.Forms.TextBox();
             this.Z2 = new System.Windows.Forms.Label();
             this.tau_Value = new System.Windows.Forms.TextBox();
             this.length = new System.Windows.Forms.Label();
@@ -114,8 +114,8 @@
             this.velocity.Controls.Add(this.Value1);
             this.velocity.Controls.Add(this.calcVeloc);
             this.velocity.Controls.Add(this.VelocityCalculation);
-            this.velocity.Controls.Add(this.length_Value);
-            this.velocity.Controls.Add(this.x_Value);
+            this.velocity.Controls.Add(this.x1Length_Value);
+            this.velocity.Controls.Add(this.dx_Value);
             this.velocity.Controls.Add(this.Z2);
             this.velocity.Controls.Add(this.tau_Value);
             this.velocity.Controls.Add(this.length);
@@ -135,14 +135,14 @@
             // 
             this.dataGridView4.AllowUserToResizeColumns = false;
             this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView4.Location = new System.Drawing.Point(425, 55);
             this.dataGridView4.Name = "dataGridView4";
@@ -181,19 +181,19 @@
             this.VelocityCalculation.TabIndex = 38;
             this.VelocityCalculation.Text = "Визначення швидкості";
             // 
-            // length_Value
+            // x1Length_Value
             // 
-            this.length_Value.Location = new System.Drawing.Point(184, 185);
-            this.length_Value.Name = "length_Value";
-            this.length_Value.Size = new System.Drawing.Size(100, 20);
-            this.length_Value.TabIndex = 37;
+            this.x1Length_Value.Location = new System.Drawing.Point(184, 185);
+            this.x1Length_Value.Name = "x1Length_Value";
+            this.x1Length_Value.Size = new System.Drawing.Size(100, 20);
+            this.x1Length_Value.TabIndex = 37;
             // 
-            // x_Value
+            // dx_Value
             // 
-            this.x_Value.Location = new System.Drawing.Point(184, 149);
-            this.x_Value.Name = "x_Value";
-            this.x_Value.Size = new System.Drawing.Size(100, 20);
-            this.x_Value.TabIndex = 35;
+            this.dx_Value.Location = new System.Drawing.Point(184, 149);
+            this.dx_Value.Name = "dx_Value";
+            this.dx_Value.Size = new System.Drawing.Size(100, 20);
+            this.dx_Value.TabIndex = 35;
             // 
             // Z2
             // 
@@ -463,14 +463,14 @@
             // 
             this.dataGridView5.AllowUserToResizeColumns = false;
             this.dataGridView5.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView5.Location = new System.Drawing.Point(6, 5);
             this.dataGridView5.Name = "dataGridView5";
@@ -696,8 +696,8 @@
         private System.Windows.Forms.Label Value1;
         private System.Windows.Forms.Button calcVeloc;
         private System.Windows.Forms.Label VelocityCalculation;
-        private System.Windows.Forms.TextBox length_Value;
-        private System.Windows.Forms.TextBox x_Value;
+        private System.Windows.Forms.TextBox x1Length_Value;
+        private System.Windows.Forms.TextBox dx_Value;
         private System.Windows.Forms.Label Z2;
         private System.Windows.Forms.TextBox tau_Value;
         private System.Windows.Forms.Label length;
