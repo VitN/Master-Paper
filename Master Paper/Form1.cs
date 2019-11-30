@@ -19,6 +19,7 @@ namespace Master_Paper
         public Form1()
         {
             InitializeComponent();
+            
         }
 
        //Обчислення швидкості
@@ -38,7 +39,7 @@ namespace Master_Paper
             double right = 0.03, left = 0.067;
 
             Initialize(ref V, right, left, h1, length);
-
+            
             double[] mu, rPlus, rMinus, a, b, c, f, alpha, beta;
             
 
