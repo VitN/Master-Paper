@@ -8,9 +8,6 @@ namespace Master_Paper
 {
     static class OtherWork
     {
-        static int Initial(int n)
-        {
-            return n;
-        }
+       
     }
 }

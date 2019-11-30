@@ -31,7 +31,7 @@ namespace Master_Paper
         //Обчислення тиску
         public static double getPressure(double ro, double gamma, double l, double Z1, double Z2)
         {
-            return gamma * (Z1 - Z2) / (ro * l);
+            return gamma * Abs(Z1 - Z2) / (ro * l);
         }
 
         //Обчислення додатку до коефіцієнта с
