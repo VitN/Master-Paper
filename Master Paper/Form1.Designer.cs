@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.velocity = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -37,9 +37,9 @@
             this.calcVeloc = new System.Windows.Forms.Button();
             this.VelocityCalculation = new System.Windows.Forms.Label();
             this.length_Value = new System.Windows.Forms.TextBox();
-            this.xStep1_Value = new System.Windows.Forms.TextBox();
+            this.x_Value = new System.Windows.Forms.TextBox();
             this.Z2 = new System.Windows.Forms.Label();
-            this.timeStep1_Value = new System.Windows.Forms.TextBox();
+            this.tau_Value = new System.Windows.Forms.TextBox();
             this.length = new System.Windows.Forms.Label();
             this.xStep1 = new System.Windows.Forms.Label();
             this.Z2_Value = new System.Windows.Forms.TextBox();
@@ -48,6 +48,14 @@
             this.Z1 = new System.Windows.Forms.Label();
             this.InitialData1 = new System.Windows.Forms.Label();
             this.concentration = new System.Windows.Forms.TabPage();
+            this.yLength_Value = new System.Windows.Forms.TextBox();
+            this.yLength = new System.Windows.Forms.Label();
+            this.showConc = new System.Windows.Forms.Button();
+            this.timeLayer_Value = new System.Windows.Forms.ComboBox();
+            this.timeLayer = new System.Windows.Forms.Label();
+            this.massTransfer_Value = new System.Windows.Forms.ComboBox();
+            this.yStep_Value = new System.Windows.Forms.TextBox();
+            this.yStep = new System.Windows.Forms.Label();
             this.massTransfer = new System.Windows.Forms.Label();
             this.diffusion_Value = new System.Windows.Forms.ComboBox();
             this.diffusion = new System.Windows.Forms.Label();
@@ -77,14 +85,6 @@
             this.graph2 = new System.Windows.Forms.TabPage();
             this.graph3 = new System.Windows.Forms.TabPage();
             this.graph4 = new System.Windows.Forms.TabPage();
-            this.yStep_Value = new System.Windows.Forms.TextBox();
-            this.yStep = new System.Windows.Forms.Label();
-            this.massTransfer_Value = new System.Windows.Forms.ComboBox();
-            this.timeLayer = new System.Windows.Forms.Label();
-            this.timeLayer_Value = new System.Windows.Forms.ComboBox();
-            this.showConc = new System.Windows.Forms.Button();
-            this.yLength_Value = new System.Windows.Forms.TextBox();
-            this.yLength = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.velocity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -115,9 +115,9 @@
             this.velocity.Controls.Add(this.calcVeloc);
             this.velocity.Controls.Add(this.VelocityCalculation);
             this.velocity.Controls.Add(this.length_Value);
-            this.velocity.Controls.Add(this.xStep1_Value);
+            this.velocity.Controls.Add(this.x_Value);
             this.velocity.Controls.Add(this.Z2);
-            this.velocity.Controls.Add(this.timeStep1_Value);
+            this.velocity.Controls.Add(this.tau_Value);
             this.velocity.Controls.Add(this.length);
             this.velocity.Controls.Add(this.xStep1);
             this.velocity.Controls.Add(this.Z2_Value);
@@ -135,14 +135,14 @@
             // 
             this.dataGridView4.AllowUserToResizeColumns = false;
             this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView4.Location = new System.Drawing.Point(425, 55);
             this.dataGridView4.Name = "dataGridView4";
@@ -170,6 +170,7 @@
             this.calcVeloc.TabIndex = 39;
             this.calcVeloc.Text = "Обчислити швидкість";
             this.calcVeloc.UseVisualStyleBackColor = true;
+            this.calcVeloc.Click += new System.EventHandler(this.calcVeloc_Click);
             // 
             // VelocityCalculation
             // 
@@ -187,12 +188,12 @@
             this.length_Value.Size = new System.Drawing.Size(100, 20);
             this.length_Value.TabIndex = 37;
             // 
-            // xStep1_Value
+            // x_Value
             // 
-            this.xStep1_Value.Location = new System.Drawing.Point(184, 149);
-            this.xStep1_Value.Name = "xStep1_Value";
-            this.xStep1_Value.Size = new System.Drawing.Size(100, 20);
-            this.xStep1_Value.TabIndex = 35;
+            this.x_Value.Location = new System.Drawing.Point(184, 149);
+            this.x_Value.Name = "x_Value";
+            this.x_Value.Size = new System.Drawing.Size(100, 20);
+            this.x_Value.TabIndex = 35;
             // 
             // Z2
             // 
@@ -203,12 +204,12 @@
             this.Z2.TabIndex = 34;
             this.Z2.Text = "Висота Z2:";
             // 
-            // timeStep1_Value
+            // tau_Value
             // 
-            this.timeStep1_Value.Location = new System.Drawing.Point(184, 114);
-            this.timeStep1_Value.Name = "timeStep1_Value";
-            this.timeStep1_Value.Size = new System.Drawing.Size(100, 20);
-            this.timeStep1_Value.TabIndex = 33;
+            this.tau_Value.Location = new System.Drawing.Point(184, 114);
+            this.tau_Value.Name = "tau_Value";
+            this.tau_Value.Size = new System.Drawing.Size(100, 20);
+            this.tau_Value.TabIndex = 33;
             // 
             // length
             // 
@@ -304,6 +305,78 @@
             this.concentration.TabIndex = 0;
             this.concentration.Text = "Визначення вмісту забруднень в рідині";
             // 
+            // yLength_Value
+            // 
+            this.yLength_Value.Location = new System.Drawing.Point(126, 184);
+            this.yLength_Value.Name = "yLength_Value";
+            this.yLength_Value.Size = new System.Drawing.Size(100, 20);
+            this.yLength_Value.TabIndex = 61;
+            // 
+            // yLength
+            // 
+            this.yLength.AutoSize = true;
+            this.yLength.Location = new System.Drawing.Point(9, 187);
+            this.yLength.Name = "yLength";
+            this.yLength.Size = new System.Drawing.Size(83, 13);
+            this.yLength.TabIndex = 60;
+            this.yLength.Text = "Довжина по y: ";
+            // 
+            // showConc
+            // 
+            this.showConc.Location = new System.Drawing.Point(255, 233);
+            this.showConc.Name = "showConc";
+            this.showConc.Size = new System.Drawing.Size(125, 55);
+            this.showConc.TabIndex = 59;
+            this.showConc.Text = "Показати";
+            this.showConc.UseVisualStyleBackColor = true;
+            // 
+            // timeLayer_Value
+            // 
+            this.timeLayer_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.timeLayer_Value.FormattingEnabled = true;
+            this.timeLayer_Value.Location = new System.Drawing.Point(255, 184);
+            this.timeLayer_Value.Name = "timeLayer_Value";
+            this.timeLayer_Value.Size = new System.Drawing.Size(121, 21);
+            this.timeLayer_Value.TabIndex = 58;
+            // 
+            // timeLayer
+            // 
+            this.timeLayer.AutoSize = true;
+            this.timeLayer.Location = new System.Drawing.Point(252, 158);
+            this.timeLayer.Name = "timeLayer";
+            this.timeLayer.Size = new System.Drawing.Size(74, 13);
+            this.timeLayer.TabIndex = 57;
+            this.timeLayer.Text = "Часовий шар";
+            // 
+            // massTransfer_Value
+            // 
+            this.massTransfer_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.massTransfer_Value.FormattingEnabled = true;
+            this.massTransfer_Value.Items.AddRange(new object[] {
+            "gamma1",
+            "gamma2",
+            "gamma3"});
+            this.massTransfer_Value.Location = new System.Drawing.Point(12, 380);
+            this.massTransfer_Value.Name = "massTransfer_Value";
+            this.massTransfer_Value.Size = new System.Drawing.Size(121, 21);
+            this.massTransfer_Value.TabIndex = 56;
+            // 
+            // yStep_Value
+            // 
+            this.yStep_Value.Location = new System.Drawing.Point(126, 112);
+            this.yStep_Value.Name = "yStep_Value";
+            this.yStep_Value.Size = new System.Drawing.Size(100, 20);
+            this.yStep_Value.TabIndex = 55;
+            // 
+            // yStep
+            // 
+            this.yStep.AutoSize = true;
+            this.yStep.Location = new System.Drawing.Point(6, 115);
+            this.yStep.Name = "yStep";
+            this.yStep.Size = new System.Drawing.Size(98, 13);
+            this.yStep.TabIndex = 54;
+            this.yStep.Text = "Крок по y (метри):";
+            // 
             // massTransfer
             // 
             this.massTransfer.AutoSize = true;
@@ -390,14 +463,14 @@
             // 
             this.dataGridView5.AllowUserToResizeColumns = false;
             this.dataGridView5.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView5.Location = new System.Drawing.Point(6, 5);
             this.dataGridView5.Name = "dataGridView5";
@@ -592,78 +665,6 @@
             this.graph4.Text = "Графік концентрації для різних коефіцієнтів дифузії";
             this.graph4.UseVisualStyleBackColor = true;
             // 
-            // yStep_Value
-            // 
-            this.yStep_Value.Location = new System.Drawing.Point(126, 112);
-            this.yStep_Value.Name = "yStep_Value";
-            this.yStep_Value.Size = new System.Drawing.Size(100, 20);
-            this.yStep_Value.TabIndex = 55;
-            // 
-            // yStep
-            // 
-            this.yStep.AutoSize = true;
-            this.yStep.Location = new System.Drawing.Point(6, 115);
-            this.yStep.Name = "yStep";
-            this.yStep.Size = new System.Drawing.Size(98, 13);
-            this.yStep.TabIndex = 54;
-            this.yStep.Text = "Крок по y (метри):";
-            // 
-            // massTransfer_Value
-            // 
-            this.massTransfer_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massTransfer_Value.FormattingEnabled = true;
-            this.massTransfer_Value.Items.AddRange(new object[] {
-            "gamma1",
-            "gamma2",
-            "gamma3"});
-            this.massTransfer_Value.Location = new System.Drawing.Point(12, 380);
-            this.massTransfer_Value.Name = "massTransfer_Value";
-            this.massTransfer_Value.Size = new System.Drawing.Size(121, 21);
-            this.massTransfer_Value.TabIndex = 56;
-            // 
-            // timeLayer
-            // 
-            this.timeLayer.AutoSize = true;
-            this.timeLayer.Location = new System.Drawing.Point(252, 158);
-            this.timeLayer.Name = "timeLayer";
-            this.timeLayer.Size = new System.Drawing.Size(74, 13);
-            this.timeLayer.TabIndex = 57;
-            this.timeLayer.Text = "Часовий шар";
-            // 
-            // timeLayer_Value
-            // 
-            this.timeLayer_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeLayer_Value.FormattingEnabled = true;
-            this.timeLayer_Value.Location = new System.Drawing.Point(255, 184);
-            this.timeLayer_Value.Name = "timeLayer_Value";
-            this.timeLayer_Value.Size = new System.Drawing.Size(121, 21);
-            this.timeLayer_Value.TabIndex = 58;
-            // 
-            // showConc
-            // 
-            this.showConc.Location = new System.Drawing.Point(255, 233);
-            this.showConc.Name = "showConc";
-            this.showConc.Size = new System.Drawing.Size(125, 55);
-            this.showConc.TabIndex = 59;
-            this.showConc.Text = "Показати";
-            this.showConc.UseVisualStyleBackColor = true;
-            // 
-            // yLength_Value
-            // 
-            this.yLength_Value.Location = new System.Drawing.Point(126, 184);
-            this.yLength_Value.Name = "yLength_Value";
-            this.yLength_Value.Size = new System.Drawing.Size(100, 20);
-            this.yLength_Value.TabIndex = 61;
-            // 
-            // yLength
-            // 
-            this.yLength.AutoSize = true;
-            this.yLength.Location = new System.Drawing.Point(9, 187);
-            this.yLength.Name = "yLength";
-            this.yLength.Size = new System.Drawing.Size(83, 13);
-            this.yLength.TabIndex = 60;
-            this.yLength.Text = "Довжина по y: ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,9 +697,9 @@
         private System.Windows.Forms.Button calcVeloc;
         private System.Windows.Forms.Label VelocityCalculation;
         private System.Windows.Forms.TextBox length_Value;
-        private System.Windows.Forms.TextBox xStep1_Value;
+        private System.Windows.Forms.TextBox x_Value;
         private System.Windows.Forms.Label Z2;
-        private System.Windows.Forms.TextBox timeStep1_Value;
+        private System.Windows.Forms.TextBox tau_Value;
         private System.Windows.Forms.Label length;
         private System.Windows.Forms.Label xStep1;
         private System.Windows.Forms.TextBox Z2_Value;

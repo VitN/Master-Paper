@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Master_Paper.Input;
 
 namespace Master_Paper
 {
@@ -16,5 +17,15 @@ namespace Master_Paper
         {
             InitializeComponent();
         }
+
+       
+        private void calcVeloc_Click(object sender, EventArgs e)
+        {
+            double Z1, Z2;
+            
+          
+        }
+
+     
     }
 }
