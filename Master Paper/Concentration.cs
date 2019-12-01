@@ -13,7 +13,7 @@ namespace Master_Paper
         //Обчислення mu
         public static double getMu(double h1, double V, double D)
         {
-            return 1 / (1 + (h1 * V / D));
+            return 1 / (1 + (h1 * Abs(V) / D));
         }
 
         //Обчислення rPlus

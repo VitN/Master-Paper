@@ -14,7 +14,7 @@ namespace Master_Paper
         //для поздовжньої прогонки
         public static double getA(double mu, double rMinus, double h1)
         {
-            return Pow(mu, 2) / Pow(h1, 2) - Pow(rMinus, 2) / h1;
+            return mu / Pow(h1, 2) - rMinus / h1;
         }
         
         //для поперечної прогонки
@@ -27,7 +27,7 @@ namespace Master_Paper
         //для поздовжньої прогонки
         public static double getB(double mu, double rPlus, double h1)
         {
-            return Pow(mu, 2) / Pow(h1, 2) + Pow(rPlus, 2) / h1;
+            return mu / Pow(h1, 2) + rPlus / h1;
         }
 
         //для поперечної прогонки
@@ -40,7 +40,7 @@ namespace Master_Paper
         //для поздовжньої прогонки
         public static double getC(double mu, double rPlus, double rMinus, double Addition, double h1)
         {
-            return 2 * Pow(mu, 2) / Pow(h1, 2) + (Pow(rPlus, 2) - Pow(rMinus, 2)) / h1 + Addition;
+            return 2 * mu / Pow(h1, 2) + (rPlus - rMinus) / h1 + Addition;
         }
 
         //для поперечної прогонки
@@ -52,13 +52,13 @@ namespace Master_Paper
         //Обчислення коефіцієнта альфа 
         public static double getAlpha(double a, double b, double c, double alphaPrev)
         {
-            return b / (c - alphaPrev / a);
+            return b / (c - alphaPrev * a);
         }
 
         //Обчислення коефіцієнта бета
         public static double getBetha(double a, double b, double c, double f, double alphaPrev, double bethaPrev)
         {
-            return  (a * bethaPrev + f)/ (c * c - alphaPrev * alphaPrev / (a * a));
+            return  (a * bethaPrev + f)/ (c - alphaPrev * a);
         }
 
         //Обчислення значення концентрації чи швидкості

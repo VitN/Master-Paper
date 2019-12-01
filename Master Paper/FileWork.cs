@@ -9,32 +9,69 @@ namespace Master_Paper
 {
     static class FileWork
     {
+        //Запис у файл двовимірного масиву
         public static void Write(string path, double[,] array)
         {
-            using (StreamWriter write = new StreamWriter(path))
+            using (StreamWriter writer = new StreamWriter(path, true))
             {
-                for (int i = 0; i < array.GetLength(0); i++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    for (int j = 0; j < array.GetLength(1); j++)
+                   for (int i = 0; i < array.GetLength(0); i++)
                     {
-                        write.Write($"{array[i, j]:F6} ");
+                        writer.Write($"{array[i, j]:F8}");
+                        if (i != array.GetLength(0) - 1)
+                        {
+                            writer.Write(" ");
+                        }
                     }
+                    writer.WriteLine();
                 }
             }
         }
 
-        public static double[,] Read(string path)
+        //Зчитування з файла масиву
+        public static double[,] ReadAllLines(string path, int n)
         {
             string[] lines = File.ReadAllLines(path);
-            double[,] array = new double[lines.Length, lines[0].Split(' ').Length];
+            double[,] array = new double[lines.Length - n + 1, lines[n].Split(' ').Length];
 
-            for (int i = 0; i < lines.Length; i++)
+            for (int i = n; i < lines.Length; i++)
             {
                 string[] temp = lines[i].Split(' ');
                 for (int j = 0; j < temp.Length; j++)
                     array[i, j] = Convert.ToDouble(temp[j]);
             }
      
+            return array;
+        }
+
+        //Запис у файл одновимірного масиву
+        public static void Write(string path, double[] array)
+        {
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                        writer.Write($"{array[j]:F8}");
+                        if (j != array.GetLength(0) - 1)
+                        {
+                            writer.Write(" ");
+                        }
+                }
+                writer.WriteLine();
+            }
+        }
+
+        //Зчитування з файлу параметрів
+        public static double[] ReadOneLine(string path, int n)
+        {
+            string[] lines = File.ReadAllLines(path);
+            double[] array = new double[lines[n].Split(' ').Length];
+
+            string[] temp = lines[n].Split(' ');
+            for (int j = 0; j < temp.Length; j++)
+                array[j] = Convert.ToDouble(temp[j]);
+
             return array;
         }
     }
