@@ -33,13 +33,13 @@ namespace Master_Paper
         public static double[,] ReadAllLines(string path, int n)
         {
             string[] lines = File.ReadAllLines(path);
-            double[,] array = new double[lines.Length - n + 1, lines[n].Split(' ').Length];
+            double[,] array = new double[lines.Length - n, lines[n].Split(' ').Length];
 
             for (int i = n; i < lines.Length; i++)
             {
                 string[] temp = lines[i].Split(' ');
                 for (int j = 0; j < temp.Length; j++)
-                    array[i, j] = Convert.ToDouble(temp[j]);
+                    array[i - n, j] = Convert.ToDouble(temp[j]);
             }
      
             return array;

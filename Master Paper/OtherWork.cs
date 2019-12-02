@@ -43,7 +43,7 @@ namespace Master_Paper
         }
 
         //Заповнення таблиці на формі даними
-        public static void FillData(object dataView, double[,] array, double tau, double h)
+        public static void FillData(object dataView, double[,] array, double tau, double h, string var)
         {
             int n = array.GetLength(0);
             int m = array.GetLength(1);
@@ -57,7 +57,7 @@ namespace Master_Paper
                 for (int j = 0; j < m; j++)
                 {
                     data.Rows[j].Cells[i].Value = array[i, j];
-                    data.Rows[j].HeaderCell.Value = "t = " + tau * j;
+                    data.Rows[j].HeaderCell.Value = var + " = " + tau * j;
                 }
                 data.Columns[i].HeaderCell.Value = "x = " + h * i;
             }

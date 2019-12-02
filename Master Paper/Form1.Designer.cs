@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.velocity = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -59,11 +60,8 @@
             this.massTransfer = new System.Windows.Forms.Label();
             this.diffusion_Value = new System.Windows.Forms.ComboBox();
             this.diffusion = new System.Windows.Forms.Label();
-            this.boundaryII = new System.Windows.Forms.RadioButton();
-            this.boundaryI = new System.Windows.Forms.RadioButton();
-            this.Boundary = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.Velocity_var = new System.Windows.Forms.TabPage();
+            this.Current_time = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.calcConc = new System.Windows.Forms.Button();
             this.xLength_Value = new System.Windows.Forms.TextBox();
@@ -85,15 +83,19 @@
             this.graph2 = new System.Windows.Forms.TabPage();
             this.graph3 = new System.Windows.Forms.TabPage();
             this.graph4 = new System.Windows.Forms.TabPage();
+            this.Next_time = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.velocity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.concentration.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.Velocity_var.SuspendLayout();
+            this.Current_time.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.graph.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.Next_time.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -135,14 +137,14 @@
             // 
             this.dataGridView4.AllowUserToResizeColumns = false;
             this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView4.Location = new System.Drawing.Point(425, 55);
             this.dataGridView4.Name = "dataGridView4";
@@ -187,6 +189,7 @@
             this.x1Length_Value.Name = "x1Length_Value";
             this.x1Length_Value.Size = new System.Drawing.Size(100, 20);
             this.x1Length_Value.TabIndex = 37;
+            this.x1Length_Value.TextChanged += new System.EventHandler(this.x1Length_Value_TextChanged);
             // 
             // dx_Value
             // 
@@ -194,6 +197,7 @@
             this.dx_Value.Name = "dx_Value";
             this.dx_Value.Size = new System.Drawing.Size(100, 20);
             this.dx_Value.TabIndex = 35;
+            this.dx_Value.TextChanged += new System.EventHandler(this.dx_Value_TextChanged);
             // 
             // Z2
             // 
@@ -210,6 +214,7 @@
             this.tau_Value.Name = "tau_Value";
             this.tau_Value.Size = new System.Drawing.Size(100, 20);
             this.tau_Value.TabIndex = 33;
+            this.tau_Value.TextChanged += new System.EventHandler(this.tau_Value_TextChanged);
             // 
             // length
             // 
@@ -284,9 +289,6 @@
             this.concentration.Controls.Add(this.massTransfer);
             this.concentration.Controls.Add(this.diffusion_Value);
             this.concentration.Controls.Add(this.diffusion);
-            this.concentration.Controls.Add(this.boundaryII);
-            this.concentration.Controls.Add(this.boundaryI);
-            this.concentration.Controls.Add(this.Boundary);
             this.concentration.Controls.Add(this.tabControl2);
             this.concentration.Controls.Add(this.calcConc);
             this.concentration.Controls.Add(this.xLength_Value);
@@ -329,6 +331,7 @@
             this.showConc.TabIndex = 59;
             this.showConc.Text = "Показати";
             this.showConc.UseVisualStyleBackColor = true;
+            this.showConc.Click += new System.EventHandler(this.showConc_Click);
             // 
             // timeLayer_Value
             // 
@@ -353,9 +356,9 @@
             this.massTransfer_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.massTransfer_Value.FormattingEnabled = true;
             this.massTransfer_Value.Items.AddRange(new object[] {
-            "gamma1",
-            "gamma2",
-            "gamma3"});
+            "3,7E-5",
+            "3,7E-4",
+            "3,7E-3"});
             this.massTransfer_Value.Location = new System.Drawing.Point(12, 380);
             this.massTransfer_Value.Name = "massTransfer_Value";
             this.massTransfer_Value.Size = new System.Drawing.Size(121, 21);
@@ -391,9 +394,9 @@
             this.diffusion_Value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.diffusion_Value.FormattingEnabled = true;
             this.diffusion_Value.Items.AddRange(new object[] {
-            "D1",
-            "D2",
-            "D3"});
+            "1,9E-8",
+            "1,9E-4",
+            "1,9E-1"});
             this.diffusion_Value.Location = new System.Drawing.Point(12, 320);
             this.diffusion_Value.Name = "diffusion_Value";
             this.diffusion_Value.Size = new System.Drawing.Size(121, 21);
@@ -408,69 +411,40 @@
             this.diffusion.TabIndex = 50;
             this.diffusion.Text = "Коефіцієнт дифузії D:";
             // 
-            // boundaryII
-            // 
-            this.boundaryII.AutoSize = true;
-            this.boundaryII.Location = new System.Drawing.Point(9, 271);
-            this.boundaryII.Name = "boundaryII";
-            this.boundaryII.Size = new System.Drawing.Size(57, 17);
-            this.boundaryII.TabIndex = 49;
-            this.boundaryII.TabStop = true;
-            this.boundaryII.Text = "ІІ роду";
-            this.boundaryII.UseVisualStyleBackColor = true;
-            // 
-            // boundaryI
-            // 
-            this.boundaryI.AutoSize = true;
-            this.boundaryI.Location = new System.Drawing.Point(9, 238);
-            this.boundaryI.Name = "boundaryI";
-            this.boundaryI.Size = new System.Drawing.Size(54, 17);
-            this.boundaryI.TabIndex = 48;
-            this.boundaryI.TabStop = true;
-            this.boundaryI.Text = "І роду";
-            this.boundaryI.UseVisualStyleBackColor = true;
-            // 
-            // Boundary
-            // 
-            this.Boundary.AutoSize = true;
-            this.Boundary.Location = new System.Drawing.Point(6, 212);
-            this.Boundary.Name = "Boundary";
-            this.Boundary.Size = new System.Drawing.Size(91, 13);
-            this.Boundary.TabIndex = 47;
-            this.Boundary.Text = "Гранична умова:";
-            // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.Velocity_var);
+            this.tabControl2.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.tabControl2.Controls.Add(this.Current_time);
+            this.tabControl2.Controls.Add(this.Next_time);
             this.tabControl2.Location = new System.Drawing.Point(382, 63);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(570, 348);
             this.tabControl2.TabIndex = 45;
             // 
-            // Velocity_var
+            // Current_time
             // 
-            this.Velocity_var.Controls.Add(this.dataGridView5);
-            this.Velocity_var.Location = new System.Drawing.Point(4, 22);
-            this.Velocity_var.Name = "Velocity_var";
-            this.Velocity_var.Padding = new System.Windows.Forms.Padding(3);
-            this.Velocity_var.Size = new System.Drawing.Size(562, 322);
-            this.Velocity_var.TabIndex = 1;
-            this.Velocity_var.Text = "Концентрація";
-            this.Velocity_var.UseVisualStyleBackColor = true;
+            this.Current_time.Controls.Add(this.dataGridView5);
+            this.Current_time.Location = new System.Drawing.Point(4, 22);
+            this.Current_time.Name = "Current_time";
+            this.Current_time.Padding = new System.Windows.Forms.Padding(3);
+            this.Current_time.Size = new System.Drawing.Size(562, 322);
+            this.Current_time.TabIndex = 1;
+            this.Current_time.Text = "Поточний часовий шар";
+            this.Current_time.UseVisualStyleBackColor = true;
             // 
             // dataGridView5
             // 
             this.dataGridView5.AllowUserToResizeColumns = false;
             this.dataGridView5.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView5.Location = new System.Drawing.Point(6, 5);
             this.dataGridView5.Name = "dataGridView5";
@@ -489,11 +463,13 @@
             this.calcConc.TabIndex = 44;
             this.calcConc.Text = "Обчислити концентрацію";
             this.calcConc.UseVisualStyleBackColor = true;
+            this.calcConc.Click += new System.EventHandler(this.calcConc_Click);
             // 
             // xLength_Value
             // 
             this.xLength_Value.Location = new System.Drawing.Point(126, 146);
             this.xLength_Value.Name = "xLength_Value";
+            this.xLength_Value.ReadOnly = true;
             this.xLength_Value.Size = new System.Drawing.Size(100, 20);
             this.xLength_Value.TabIndex = 43;
             // 
@@ -501,6 +477,7 @@
             // 
             this.xStep2_Value.Location = new System.Drawing.Point(126, 77);
             this.xStep2_Value.Name = "xStep2_Value";
+            this.xStep2_Value.ReadOnly = true;
             this.xStep2_Value.Size = new System.Drawing.Size(100, 20);
             this.xStep2_Value.TabIndex = 42;
             // 
@@ -508,6 +485,7 @@
             // 
             this.timeStep2_Value.Location = new System.Drawing.Point(126, 42);
             this.timeStep2_Value.Name = "timeStep2_Value";
+            this.timeStep2_Value.ReadOnly = true;
             this.timeStep2_Value.Size = new System.Drawing.Size(100, 20);
             this.timeStep2_Value.TabIndex = 41;
             // 
@@ -665,6 +643,39 @@
             this.graph4.Text = "Графік концентрації для різних коефіцієнтів дифузії";
             this.graph4.UseVisualStyleBackColor = true;
             // 
+            // Next_time
+            // 
+            this.Next_time.Controls.Add(this.dataGridView1);
+            this.Next_time.Location = new System.Drawing.Point(4, 22);
+            this.Next_time.Name = "Next_time";
+            this.Next_time.Padding = new System.Windows.Forms.Padding(3);
+            this.Next_time.Size = new System.Drawing.Size(562, 322);
+            this.Next_time.TabIndex = 2;
+            this.Next_time.Text = "Наступний часовий шар";
+            this.Next_time.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 100;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(550, 311);
+            this.dataGridView1.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,10 +691,12 @@
             this.concentration.ResumeLayout(false);
             this.concentration.PerformLayout();
             this.tabControl2.ResumeLayout(false);
-            this.Velocity_var.ResumeLayout(false);
+            this.Current_time.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.graph.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
+            this.Next_time.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -714,11 +727,8 @@
         private System.Windows.Forms.Label massTransfer;
         private System.Windows.Forms.ComboBox diffusion_Value;
         private System.Windows.Forms.Label diffusion;
-        private System.Windows.Forms.RadioButton boundaryII;
-        private System.Windows.Forms.RadioButton boundaryI;
-        private System.Windows.Forms.Label Boundary;
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage Velocity_var;
+        private System.Windows.Forms.TabPage Current_time;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Button calcConc;
         private System.Windows.Forms.TextBox xLength_Value;
@@ -745,6 +755,8 @@
         private System.Windows.Forms.Label timeLayer;
         private System.Windows.Forms.TextBox yLength_Value;
         private System.Windows.Forms.Label yLength;
+        private System.Windows.Forms.TabPage Next_time;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

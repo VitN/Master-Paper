@@ -42,31 +42,39 @@ namespace Master_Paper
             return C / (2 * D * tau) + C_bound * gamma / (2 * D);
         }
 
-        //Крайова умова
-        public static void Initialize(ref double[,] C, double right, double left, double h1, double xLen, bool status)
+        public static void Initialize(ref double[,] C, double bound, double CBound)
         {
-            int n = C.GetLength(0);
-            int m = C.GetLength(1);
+            int n = C.GetLength(0) - 1;
+            int m = C.GetLength(1) - 1;
 
-            //Граничні умови
-            for (int j = 0; j <= m; j++)
-                C[0, j] = left;
-
-            //1 роду
-            if (status)
+            for (int j = 0; j <= n; j++)
             {
-                for (int j = 0; j <= m; j++)
-                    C[n, j] = right;
+                C[j, 0] = bound;
             }
-            //2 роду
-            else { C[n, 0] = right; }
-            
-            //Початкова умова
+            C[0, m] = CBound;
+        }
+
+        //Початкова умова
+        public static void Initialize(ref double[,] C, double right, double left, double h1, double xLen)
+        {
+            int n = C.GetLength(0) - 1;
+            int m = C.GetLength(1) - 1;
+
+            for (int j = 0; j <= n; j++)
+            {
+                C[0, j] = left;
+                C[n, j] = right;
+            }
+
             double x = 0;
             for (int i = 1; i < n; i++)
             {
                 x = i * h1;
-                C[i, 0] = (C[0, 0] - C[n, 0]) * x / xLen + C[0, 0];
+                for (int j = 0; j <= m; j++)
+                {
+                    
+                    C[i, j] = Abs(C[0, j] - C[n, j]) * x / xLen + C[0, 0];
+                }
             }
         }
 
